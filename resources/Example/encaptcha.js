@@ -39,6 +39,10 @@ function init_encaptcha(input){
 			textBox.setAttribute('data-index', i);
 			textBox.setAttribute('class', 'encaptcha-inputs33');
 			textBox.setAttribute('style', 'text-align:center; padding: 10px '+parseInt(36/input.char_count)+'px; width:15px; margin:1px; border:1px solid #C0C0C0; border-radius:4px;');
+			textBox.addEventListener('keyup', function(){
+				validateCaptcha();
+				// alert();
+			})
 			txt_wrapper.appendChild(textBox);
 		}
 		can_wrapper.appendChild(txt_wrapper);
@@ -84,5 +88,25 @@ function init_encaptcha(input){
 			}
 			mike.innerHTML = 'Valid for '+lap+' sec'; 
 		}, 1000);
+
+		function validateCaptcha(){
+			var u_inputbxs = document.querySelectorAll('.encaptcha-inputs33');
+			var user_values = [];
+			var inputted = 0;
+			for(var i = 0; i<u_inputbxs.length; i++ ){
+				var indx = u_inputbxs[i].getAttribute('data-index');
+				var value = u_inputbxs[i].value.trim();
+				if(value != "" && value.length != 0){
+					inputted++;
+					user_values[indx] = value;
+				}
+			}
+			if(inputted == input.char_count){
+				// stop timer
+				// validate input is yes return true 
+				// else reset timer and active_pattern then draw again
+				alert("Validate the input")
+			}
+		}
 	}
 }
