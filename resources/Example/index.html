@@ -12,5 +12,12 @@
 	<h2>En-captcha Example</h2>
 	<div class="captcha_container"></div>
 </body>
-<script type="text/javascript" src="encaptcha.js" defer></script>
+<script type="text/javascript" src="encaptcha.js"></script>
+<script type="text/javascript">
+	init_encaptcha({
+		char_count: 6, // 4,5 or 6
+		container: '.captcha_container',
+		reload_sec: 20
+	});
+</script>
 </html>
