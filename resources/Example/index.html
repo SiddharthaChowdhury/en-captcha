@@ -14,10 +14,11 @@
 </body>
 <script type="text/javascript" src="encaptcha.js"></script>
 <script type="text/javascript">
-	init_encaptcha({
-		char_count: 6, // 4,5 or 6
+	var o1 = new en_captcha();
+	o1.init({
+		char_count: 4, // 4,5 or 6
 		container: '.captcha_container',
-		reload_sec: 20
+		reload_sec: 30
 	});
 </script>
 </html>
