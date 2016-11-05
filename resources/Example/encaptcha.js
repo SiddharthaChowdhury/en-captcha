@@ -47,7 +47,9 @@ Encaptcha.prototype.draw_canvas = function(){
 Encaptcha.prototype.validateCaptcha = function(){
 	var u_inputbxs = document.querySelectorAll('.'+this.textboxsClass);
 	var user_values = [];
+	var x = this;
 	var inputted = 0;
+	var validation_result = true;
 	for(var i = 0; i<u_inputbxs.length; i++ ){
 		var indx = u_inputbxs[i].getAttribute('data-index');
 		var value = u_inputbxs[i].value.trim();
@@ -57,11 +59,36 @@ Encaptcha.prototype.validateCaptcha = function(){
 		}
 	}
 	if(inputted == this.input.char_count){
-		// stop timer
-		// validate input is yes return true 
-		// else reset timer and active_pattern then draw again
-		alert("Validate the input")
+		clearTimeout(x.timerHandler);
+
+		var captcha_values = [];
+		for(var i in x.active_pattern){
+			captcha_values.push(x.active_pattern[i].name);
+		}
+
+		if(captcha_values.length == user_values.length){
+			for(var i = 0; i< captcha_values.length; i++)
+				if( captcha_values[i] != user_values[i] ){
+					validation_result = false;
+					break;
+				}
+		}
+		else
+			validation_result = false;
+		
+
+		if(validation_result)
+			alert("Captcha matched");
+		else{
+			alert("Captcha Failed");
+			x.draw_canvas();
+			x.startTimer();
+			for(var i in u_inputbxs)
+				u_inputbxs[i].value = "";
+		}
 	}
+	// else reset timer and active_pattern then draw again
+
 }
 
 Encaptcha.prototype.startTimer = function(){
