@@ -76,15 +76,17 @@ Encaptcha.prototype.validateCaptcha = function(){
 		else
 			validation_result = false;
 		
-
-		if(validation_result)
-			alert("Captcha matched");
+		// CAPTCHA VALIDATION==========================>
+		if(validation_result){
+			document.querySelector(x.input.container).innerHTML = "Validation complete."
+			x.input.onSuccess();
+		}
 		else{
-			alert("Captcha Failed");
 			x.draw_canvas();
 			x.startTimer();
 			for(var i in u_inputbxs)
 				u_inputbxs[i].value = "";
+			x.input.onfailure();
 		}
 	}
 	// else reset timer and active_pattern then draw again
@@ -158,7 +160,6 @@ Encaptcha.prototype.cookDomObjects = function(){
 		textBox.setAttribute('style', 'text-align:center; padding: 10px '+parseInt(36/x.input.char_count)+'px; width:15px; margin:1px; border:1px solid #C0C0C0; border-radius:4px;');
 		textBox.addEventListener('keyup', function(){
 			x.validateCaptcha();
-			// alert();
 		})
 		x.txt_wrapper.appendChild(textBox);
 	}
@@ -178,8 +179,8 @@ function en_captcha(){
 	this.init = function(user_input){
 		window.onload = function(){
 			var enc = new Encaptcha(user_input);
-				enc.cookDomObjects();
-				enc.startTimer();
+			enc.cookDomObjects();
+			enc.startTimer();
 		}
 	}
 }
