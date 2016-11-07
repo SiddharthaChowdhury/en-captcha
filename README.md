@@ -1,5 +1,5 @@
 # En-captcha 
-Image captcha plugin, light, easy and SECURE. Its works on clientside, build on javascript with no dependencies.
+Its a "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
 
 **Browser support**
 
