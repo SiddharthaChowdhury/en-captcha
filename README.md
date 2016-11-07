@@ -6,11 +6,9 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 
 **`PLEASE NOTE`** *Include the `encaptcha.min.js` anywhere BEFORE initializing encaptcha* 
 
-> When the `document` is loaded: 
-
-> Create an `Encaptcha` object say `en-obj` and pass in the configuration Configuration explained below in [CONFIGURATION](#CONFIGURATION)
-
-> Execute `en-obj.run()` to start the captcha.
+- When the `document` is loaded: 
+- Create an `Encaptcha` object say `en-obj` and pass in the `configuration` explained below in [CONFIGURATION section](#CONFIGURATION)
+- Execute `en-obj.run()` to start the captcha.
 
 	// EXAMPLE
 	window.onload = function(){
@@ -31,7 +29,7 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 		enc3.run();
 	}		
 
-##CONFIGURATION
+##CONFIGURATION <a name="CONFIGURATION"></a>
 
 * **`char_count:`** Strength of CAPTCHA (ie number of letters in CAPTCHA image). *Recommended-value: 5 or 6* .
 * **`container:`**  DOM element where you want the CAPTCHA to be displayed. Value can be `id` or `class` of the element. Please make sure this CAPTCHA container is **empty**.  *Example value:* `'#container'` or `'.container'` .  
