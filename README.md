@@ -1,9 +1,19 @@
-# En-captcha 
-A "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
-
+# En-captcha <a name="intro"></a> 
 ![alt tag](https://github.com/SiddharthaChowdhury/en-captcha/blob/master/dist/1.0.0/Screen-shot.png)
 
-##Setup-Guide
+A "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
+
+
+##CONTENT
+
+- [Intro](#intro)
+- [Setup-guide](#setup)
+- [Example](#example) 
+- [Configuration / Options](#CONFIGURATION)
+- [Browser support](#browser) 
+
+
+##SETUP-GUIDE <a name="setup"></a>
 
 **`PLEASE NOTE`** *Include the `encaptcha.min.js` anywhere BEFORE initializing encaptcha* 
 
@@ -11,8 +21,10 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 - Create an `Encaptcha` object say `en-obj` and pass in the `configuration` explained below in [CONFIGURATION section](#CONFIGURATION)
 - Execute `en-obj.run()` to start the captcha.
 
-	// EXAMPLE
-	window.onload = function(){
+####EXAMPLE <a name="example"></a>
+	
+	// $(document).ready(function(){}) // If JQuery
+	  window.onload = function(){ 
 
 		var enc3 = new Encaptcha({
 			char_count: 4, // 4,5 or 6
@@ -28,9 +40,9 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 
 		});
 		enc3.run();
-	}		
+	  }		
 
-##CONFIGURATION <a name="CONFIGURATION"></a>
+##CONFIGURATION / Options <a name="CONFIGURATION"></a>
 
 * **`char_count:`** Strength of CAPTCHA (ie number of letters in CAPTCHA image). *Recommended-value: 5 or 6* .
 * **`container:`**  DOM element where you want the CAPTCHA to be displayed. Value can be `id` or `class` of the element. Please make sure this CAPTCHA container is **empty**.  *Example value:* `'#container'` or `'.container'` .  
@@ -44,12 +56,20 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 **`object.run()`** Is REQUIRED to run the captcha.
 
 
-##Browser support
+##Browser support <a name="browser"></a>
 
 Tested in all modern browser ( IE-9+, Chrome, Opera, FF )
 
-**Resources**
+##Resources##
 
  Online [Image Cropping](http://croppiconline.com/en)
 
  Online [Sprite generator](https://www.leshylabs.com/apps/sstool)
+
+##CONTENT
+
+- [Intro](#intro)
+- [Setup-guide](#setup)
+- [Example](#example) 
+- [Configuration / Options](#CONFIGURATION)
+- [Browser support](#browser) 
