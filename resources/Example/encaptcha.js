@@ -5,6 +5,7 @@
 // 				**	 CLASS Encaptcha 	**
 //_____________________________________________________________
 
+
 function Encaptcha(user_input){
 	this.can_wrapper 	= document.createElement('div');
 	this.mike 			= document.createElement('small');
@@ -177,8 +178,10 @@ Encaptcha.prototype.cookDomObjects = function(){
 }
 
 Encaptcha.prototype.run = function(){
-	this.cookDomObjects();
-	this.startTimer();
+	if(document.querySelector(this.input.container).children.length == 0){
+		this.cookDomObjects();
+		this.startTimer();
+	}
 };
 /*						IMPLEMENTATION
 ________________________________________________________________
