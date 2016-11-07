@@ -2,29 +2,48 @@
 A "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
 
 
-**Setup-Example**
+##Setup-Guide
 
 **`PLEASE NOTE`** *Include the `encaptcha.min.js` anywhere BEFORE initializing encaptcha* 
 
-		window.onload = function(){
+> When the `document` is loaded: 
 
-			var enc3 = new Encaptcha({
-				char_count: 4, // 4,5 or 6
-				container: '#captcha_container',
-				reload_sec: 30,
-				form: '#exampleForm',
-				onSuccess: function(){
-					alert("Captcha match was successful, OK to redirect");
-				},
-				onfailure: function(){
-					alert("Captcha match was failed");
-				},
+> Create an `Encaptcha` object and pass in the configuration `Configuration explained below in [CONFIGURATION](#CONFIGURATION)]`
 
-			});
-			enc3.run();
-		}		
+	// EXAMPLE
+	window.onload = function(){
 
-**Browser support**
+		var enc3 = new Encaptcha({
+			char_count: 4, // 4,5 or 6
+			container: '#captcha_container',
+			reload_sec: 30,
+			form: '#exampleForm',
+			onSuccess: function(){
+				alert("Captcha match was successful, OK to redirect");
+			},
+			onfailure: function(){
+				alert("Captcha match was failed");
+			},
+
+		});
+		enc3.run();
+	}		
+
+##CONFIGURATION
+
+* **`char_count:`** Strength of CAPTCHA (ie number of letters in CAPTCHA image). *Recommended-value: 5 or 6* .
+* **`container:`**  DOM element where you want the CAPTCHA to be displayed. Value can be `id` or `class` of the element. Please make sure this CAPTCHA container is **empty**.  *Example value:* `'#container'` or `'.container'` .  
+* **`reload_sec:`** The CAPTCHA must reload after certain seconds so this value should contain an integer. *Recommended-value: 30 or 60*
+* **`form`** : *[OPTIONAL]* If you want to use CAPTCHA validation on form submit, you should pass the form reference here. Value can be `id` or `class`. *Example value:* `'#form'` or `'.form'` 
+* **`onSuccess:`**  *[OPTIONAL]* The value has to be an anonymous function which will execute when the CAPTCHA is successfully validated.
+* **`onfailure:`**  *[OPTIONAL]* The value has to be an anonymous function which will execute when the CAPTCHA validation FAILS.
+
+---------------------------------------------------
+
+**`object.run()`** Is REQUIRED to run the captcha.
+
+
+##Browser support
 
 Tested in all modern browser ( IE-9+, Chrome, Opera, FF )
 
