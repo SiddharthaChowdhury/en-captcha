@@ -21,9 +21,9 @@ function Encaptcha(user_input){
 	this.textboxsClass	= "";
 	this.timerHandler	= null;
 	this.active_pattern = [];
-	this.form_id		= null;
 	// this.embedded		= user_input.embedded || true;
-	// this.form			= user_input.form || undefined;
+	this.form			= user_input.form || null;
+	this.formControl_id	= {init:'enc_',final:null};
 }
 
 Encaptcha.prototype.draw_canvas = function(){
@@ -86,7 +86,14 @@ Encaptcha.prototype.validateCaptcha = function(){
 		// CAPTCHA VALIDATION==========================>
 		if(validation_result){
 			document.querySelector(x.input.container).innerHTML = "Validation complete."
-			
+			var _form = document.querySelector(x.form);
+			if(_form != null){
+				x.formControl_id.final = 'enc_';
+				for(var i =0; i <15; i++){
+					x.formControl_id.final += parseInt(Math.floor(Math.random() * 9) + 0)
+				}
+				_form.setAttribute('data-finalControlEncaptcha', x.formControl_id.final);
+			}
 			x.input.onSuccess();
 		}
 		else{
@@ -178,21 +185,27 @@ Encaptcha.prototype.cookDomObjects = function(){
 }
 
 Encaptcha.prototype.run = function(){
-	if(document.querySelector(this.input.container).children.length == 0){
-		this.cookDomObjects();
-		this.startTimer();
+	var x = this;
+	if(document.querySelector(x.input.container).children.length == 0){
+		var _form = document.querySelector(x.form);
+		if( _form != null){
+			
+			for(var i =0; i <12; i++){
+				x.formControl_id.init += parseInt(Math.floor(Math.random() * 9) + 0)
+			}
+			_form.setAttribute('data-initControlEncaptcha', x.formControl_id.init);
+			// x.formControl_id.init = _controlID;
+
+			_form.addEventListener("submit", function (e) {
+	 			e.preventDefault();
+	 			if(x.formControl_id.final != null){
+	 				if( (_form.getAttribute('data-initControlEncaptcha') == x.formControl_id.init) && _form.getAttribute('data-finalControlEncaptcha') == x.formControl_id.final ){
+	 					_form.submit();
+	 				}
+	 			}
+	 		});
+		}
+		x.cookDomObjects();
+		x.startTimer();
 	}
 };
-/*						IMPLEMENTATION
-________________________________________________________________
-*/
-
-// function en_captcha(){
-// 	this.init = function(user_input){
-// 		window.onload = function(){
-// 			var enc = new Encaptcha(user_input);
-// 			enc.cookDomObjects();
-// 			enc.startTimer();
-// 		}
-// 	}
-// }

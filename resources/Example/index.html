@@ -5,7 +5,7 @@
 	<style type="text/css">
 
 		h2{ text-align: center }
-		.containers{
+		.examples{
 			width: 300px;
 			height: 400px;
 			background-color: #04B486;
@@ -17,31 +17,15 @@
 </head>
 <body>
 	<h2>En-captcha Examples</h2>
-	<!-- Form 1 -->
-	<div class="containers">
-		<h3>Embedded captcha</h3>
-		<div id="captcha_container001"></div>
-	</div>
-	<!-- Form 2 -->
-	<div class="containers">
-		<h3>CAPTCHA after Form Submit</h3>
-		<p>
-			<form method="GET" action="http://example.com/" id="exampleForm2">
-				<input type="text" name="title">
-				<button type="submit">Submit</button>
-			<form>
-		</p>
-		<div id="captcha_container002"></div>
-	</div>
-	<!-- Form 3 -->
-	<div id="captcha_container003" class="containers">
+	<div class="examples">
 		<h3>CAPTCHA embedded on form</h3>
 		<p>
-			<form method="GET" action="http://example.com/" id="exampleForm3">
+			<form method="GET" action="http://example.com/" id="exampleForm">
 				<input type="text" name="title">
 				<button type="submit">Submit</button>
 			<form>
 		</p>
+		<div id="captcha_container"></div>
 	</div>
 </body>
 <script type="text/javascript" src="encaptcha.js"></script>
@@ -49,40 +33,25 @@
 
 window.onload = function(){
 
-	// ==============  EXAMPLE 1 =====================
-	var enc1 = new Encaptcha({
-		char_count: 6, // 4,5 or 6
-		container: '#captcha_container001',
-		reload_sec: 3000,
-		onSuccess: function(){
-			alert("Captcha match was successful! Example-1");
-		},
-		onfailure: function(){
-			alert("Captcha match was failed! Example-1");
-		}
-	});
-	enc1.run();
-
-
-	// // ==============  EXAMPLE 2 =====================
-	var form = document.getElementById("exampleForm2");
-	form.addEventListener("submit", function (e) {
-	 	e.preventDefault();
+	// // // ==============  EXAMPLE 2 =====================
+	// var form = document.getElementById("exampleForm2");
+	// form.addEventListener("submit", function (e) {
+	//  	e.preventDefault();
 	 	
-		var enc2 = new Encaptcha({
-			char_count: 5, // 4,5 or 6
-			container: '#captcha_container002',
-			reload_sec: 15,
-			onSuccess: function(){
-				alert("Captcha match was successful! Press 'OK' to SUBMIT the form");
-				form.submit();
-			},
-			onfailure: function(){
-				alert("Captcha match was failed! Form cannot be Submitted");
-			}
-		});
-		enc2.run();
-	});
+	// 	var enc2 = new Encaptcha({
+	// 		char_count: 5, // 4,5 or 6
+	// 		container: '#captcha_container002',
+	// 		reload_sec: 15,
+	// 		onSuccess: function(){
+	// 			alert("Captcha match was successful! Press 'OK' to SUBMIT the form");
+	// 			form.submit();
+	// 		},
+	// 		onfailure: function(){
+	// 			alert("Captcha match was failed! Form cannot be Submitted");
+	// 		}
+	// 	});
+	// 	enc2.run();
+	// });
 		
 
 	// ==============  EXAMPLE 3 =====================
@@ -90,16 +59,14 @@ window.onload = function(){
 
 	var enc3 = new Encaptcha({
 		char_count: 4, // 4,5 or 6
-		container: '#captcha_container003',
-		reload_sec: 5,
-		// form: '#exampleForm3',
-		// embedded: true,
+		container: '#captcha_container',
+		reload_sec: 30,
+		form: '#exampleForm',
 		onSuccess: function(){
-			alert("Captcha match was successful FORM-2");
+			alert("Captcha match was successful, OK to redirect");
 		},
 		onfailure: function(){
-			console.log("Captcha match was failed FORM-2")
-			alert("failed");
+			alert("Captcha match was failed");
 		},
 
 	});
