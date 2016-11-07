@@ -1,10 +1,5 @@
 // encaptcha.js
 
-
-// ------------------------------------------------------------
-// 				**	 CLASS Encaptcha 	**
-//_____________________________________________________________
-
 	function Encaptcha(user_input){
 		this.can_wrapper 	= document.createElement('div');
 		this.mike 			= document.createElement('small');
@@ -20,7 +15,6 @@
 		this.textboxsClass	= "";
 		this.timerHandler	= null;
 		this.active_pattern = [];
-		// this.embedded		= user_input.embedded || true;
 		this.form			= user_input.form || null;
 		this.formControl_id	= {init:'enc_',final:null};
 	}
@@ -100,8 +94,6 @@
 				x.input.onfailure();
 			}
 		}
-		// else reset timer and active_pattern then draw again
-
 	}
 
 	Encaptcha.prototype.startTimer = function(){
@@ -192,7 +184,6 @@
 					x.formControl_id.init += parseInt(Math.floor(Math.random() * 9) + 0)
 				}
 				_form.setAttribute('data-initControlEncaptcha', x.formControl_id.init);
-				// x.formControl_id.init = _controlID;
 
 				_form.addEventListener("submit", function (e) {
 		 			e.preventDefault();

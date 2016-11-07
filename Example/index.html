@@ -16,7 +16,7 @@
 	</style>
 </head>
 <body>
-	<h2>En-captcha Examples</h2>
+	<h2>En-captcha Example</h2>
 	<div class="examples">
 		<h3>CAPTCHA embedded on form</h3>
 		<p>
@@ -28,13 +28,13 @@
 		<div id="captcha_container"></div>
 	</div>
 </body>
-<script type="text/javascript" src="encaptcha.js"></script>
+<script type="text/javascript" src="encaptcha.min.js"></script>
 <script type="text/javascript">
 
 window.onload = function(){
 
 	var enc3 = new Encaptcha({
-		char_count: 4, // 4,5 or 6
+		char_count: 5, // 4,5 or 6
 		container: '#captcha_container',
 		reload_sec: 30,
 		form: '#exampleForm',
