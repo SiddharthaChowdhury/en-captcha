@@ -1,4 +1,5 @@
-# En-captcha <a name="intro"></a> 
+<a name="intro"></a> 
+# En-captcha 
 ![alt tag](https://github.com/SiddharthaChowdhury/en-captcha/blob/master/dist/1.0.0/Screen-shot.png)
 
 A "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
@@ -13,7 +14,8 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 - [Browser support](#browser) 
 
 
-##SETUP-GUIDE <a name="setup"></a>
+<a name="setup"></a>
+##SETUP-GUIDE 
 
 **`PLEASE NOTE`** *Include the `encaptcha.min.js` anywhere BEFORE initializing encaptcha* 
 
@@ -21,7 +23,8 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 - Create an `Encaptcha` object say `en-obj` and pass in the `configuration` explained below in [CONFIGURATION section](#CONFIGURATION)
 - Execute `en-obj.run()` to start the captcha.
 
-####EXAMPLE <a name="example"></a>
+<a name="example"></a>
+####EXAMPLE 
 	
 	// $(document).ready(function(){}) // If JQuery
 	  window.onload = function(){ 
@@ -42,7 +45,8 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 		enc3.run();
 	  }		
 
-##CONFIGURATION / Options <a name="CONFIGURATION"></a>
+<a name="CONFIGURATION"></a>
+##CONFIGURATION / Options 
 
 * **`char_count:`** Strength of CAPTCHA (ie number of letters in CAPTCHA image). *Recommended-value: 5 or 6* .
 * **`container:`**  DOM element where you want the CAPTCHA to be displayed. Value can be `id` or `class` of the element. Please make sure this CAPTCHA container is **empty**.  *Example value:* `'#container'` or `'.container'` .  
@@ -55,8 +59,8 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 
 **`object.run()`** Is REQUIRED to run the captcha.
 
-
-##Browser support <a name="browser"></a>
+<a name="browser"></a>
+##Browser support 
 
 Tested in all modern browser ( IE-9+, Chrome, Opera, FF )
 
