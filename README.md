@@ -1,6 +1,7 @@
 # En-captcha 
 A "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
 
+![alt tag](https://github.com/SiddharthaChowdhury/en-captcha/blob/master/dist/1.0.0/Screen-shot.png)
 
 ##Setup-Guide
 
