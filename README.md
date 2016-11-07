@@ -11,6 +11,7 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 - [Setup-guide](#setup)
 - [Example](#example) 
 - [Configuration / Options](#CONFIGURATION)
+- [Dependency] (#dependency)
 - [Browser support](#browser) 
 
 
@@ -62,7 +63,12 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 <a name="browser"></a>
 ##Browser support 
 
-Tested in all modern browser ( IE-9+, Chrome, Opera, FF )
+Tested in all modern browser ( IE-9+, Chrome, Opera, FF, Safari )
+
+<a name="dependency"></a>
+##Dependency
+
+NO Dependency. It is **NOT** dependent on any library/framework like JQuery or as such.
 
 ##Resources##
 
@@ -76,4 +82,5 @@ Tested in all modern browser ( IE-9+, Chrome, Opera, FF )
 - [Setup-guide](#setup)
 - [Example](#example) 
 - [Configuration / Options](#CONFIGURATION)
+- [Dependency] (#dependency)
 - [Browser support](#browser) 
