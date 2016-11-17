@@ -18,10 +18,10 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 <a name="setup"></a>
 ##SETUP-GUIDE 
 
-**`PLEASE NOTE`** *`encaptcha.min.js`* and *`encaptcha.js`* in directory **/dist** is always a stable version of en-captch
+**`PLEASE NOTE`** *`encaptcha.min.js`* and *`encaptcha.js`* in directory **`/dist`** is always a stable version of en-captcha
 
 - Clone/Download the repo in your local system
-- Extract the `encaptcha.min.js` or `encaptcha.js` from the dir **/dist** and put it your project
+- Extract the `encaptcha.min.js` or `encaptcha.js` from the dir **`/dist`** and put it your project
 - Once you already have the plugin (the `.js` file) in your project
 - Write a script to configure and display the captcha. To do so (Refer the  [Example](#example) given below )   
 - Create an `Encaptcha` object say `en-obj` and pass in the `configuration` explained below in [CONFIGURATION section](#CONFIGURATION)
