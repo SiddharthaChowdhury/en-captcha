@@ -1,6 +1,6 @@
 <a name="intro"></a> 
 # En-captcha 
-![alt tag](https://github.com/SiddharthaChowdhury/en-captcha/blob/master/dist/1.0.0/Screen-shot.png)
+![alt tag](https://github.com/SiddharthaChowdhury/en-captcha/blob/master/Screen-shot.png)
 
 A "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
 
@@ -18,9 +18,12 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 <a name="setup"></a>
 ##SETUP-GUIDE 
 
-**`PLEASE NOTE`** *Include the `encaptcha.min.js` anywhere BEFORE initializing encaptcha* 
+**`PLEASE NOTE`** *`encaptcha.min.js` and `encaptcha.js` in directory **/dist** is always a stable version of en-captch* 
 
-- When the `document` is loaded: 
+- Clone/Download the repo in your local system
+- Extract the `encaptcha.min.js` or `encaptcha.js` from the dir **/dist** and put it your project
+- Once you already have the plugin (the `.js` file) in your project
+- Write a script to configure and display the captcha. To do so (Refer the  [Example](#example) given below )   
 - Create an `Encaptcha` object say `en-obj` and pass in the `configuration` explained below in [CONFIGURATION section](#CONFIGURATION)
 - Execute `en-obj.run()` to start the captcha.
 
@@ -30,8 +33,9 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 	// $(document).ready(function(){}) // If JQuery
 	  window.onload = function(){ 
 
+	  	// The configuration section
 		var enc3 = new Encaptcha({
-			char_count: 4, // 4,5 or 6
+			char_count: 4, // 5 or 6
 			container: '#captcha_container',
 			reload_sec: 30,
 			form: '#exampleForm',
@@ -43,13 +47,15 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 			},
 
 		});
+		
+		// Execute the captcha
 		enc3.run();
 	  }		
 
 <a name="CONFIGURATION"></a>
 ##CONFIGURATION / Options 
 
-* **`char_count:`** Strength of CAPTCHA (ie number of letters in CAPTCHA image). *Recommended-value: 5 or 6* .
+* **`char_count:`** Strength of CAPTCHA (ie number of letters in CAPTCHA image). *Recommended-value: 5 or 6* . It cannot be less than 5
 * **`container:`**  DOM element where you want the CAPTCHA to be displayed. Value can be `id` or `class` of the element. Please make sure this CAPTCHA container is **empty**.  *Example value:* `'#container'` or `'.container'` .  
 * **`reload_sec:`** The CAPTCHA must reload after certain seconds so this value should contain an integer. *Recommended-value: 30 or 60*
 * **`form`** : *[OPTIONAL]* If you want to use CAPTCHA validation on form submit, you should pass the form reference here. Value can be `id` or `class`. *Example value:* `'#form'` or `'.form'` 
