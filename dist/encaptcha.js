@@ -182,25 +182,27 @@
 
 	Encaptcha.prototype.run = function(){
 		var x = this;
-		if(document.querySelector(x.input.container).children.length == 0){
-			var _form = document.querySelector(x.form);
-			if( _form != null){
-				
-				for(var i =0; i <12; i++){
-					x.formControl_id.init += parseInt(Math.floor(Math.random() * 9) + 0)
-				}
-				_form.setAttribute('data-initControlEncaptcha', x.formControl_id.init);
+		if(document.querySelector(x.input.container) != null){
+			if(document.querySelector(x.input.container).children.length == 0){
+				var _form = document.querySelector(x.form);
+				if( _form != null){
+					
+					for(var i =0; i <12; i++){
+						x.formControl_id.init += parseInt(Math.floor(Math.random() * 9) + 0)
+					}
+					_form.setAttribute('data-initControlEncaptcha', x.formControl_id.init);
 
-				_form.addEventListener("submit", function (e) {
-		 			e.preventDefault();
-		 			if(x.formControl_id.final != null){
-		 				if( (_form.getAttribute('data-initControlEncaptcha') == x.formControl_id.init) && _form.getAttribute('data-finalControlEncaptcha') == x.formControl_id.final ){
-		 					_form.submit();
-		 				}
-		 			}
-		 		});
+					_form.addEventListener("submit", function (e) {
+			 			e.preventDefault();
+			 			if(x.formControl_id.final != null){
+			 				if( (_form.getAttribute('data-initControlEncaptcha') == x.formControl_id.init) && _form.getAttribute('data-finalControlEncaptcha') == x.formControl_id.final ){
+			 					_form.submit();
+			 				}
+			 			}
+			 		});
+				}
+				x.cookDomObjects();
+				x.startTimer();
 			}
-			x.cookDomObjects();
-			x.startTimer();
 		}
 	};
