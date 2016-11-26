@@ -82,6 +82,12 @@ NO Dependency. It is **NOT** dependent on any library/framework like JQuery or a
 
  Online [Sprite generator](https://www.leshylabs.com/apps/sstool)
 
+ Online [OCR](http://www.ocrconvert.com/)
+
+ Online [Image compress](http://optimizilla.com)
+
+ Online [Image metadata viewer](http://regex.info/exif.cgi)
+ 
 ##CONTENT
 
 - [Intro](#intro)
