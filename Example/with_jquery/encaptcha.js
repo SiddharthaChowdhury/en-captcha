@@ -3,6 +3,7 @@ class Encaptcha {
 		this.container = raw.config.container;
 		this.lap = parseInt(raw.config.reload_interval) || 30;
 		this.reload_btn_text = raw.config.reloadBtn_text || 'Reload';
+		this.attempt = (raw.config.allowed_attempt > 0 ? raw.config.allowed_attempt : -1) || -1;
 		
 		this.final 		= null;
 		this.timestamp 	= null;
@@ -11,6 +12,7 @@ class Encaptcha {
 		this.ctx 		= null;
 		this.input 		= null;
 		this.sprite		= null;
+		this.kyPressCnt = 0;
 
 		this.char_count	= null;
 		this.timerHandler = null;
@@ -72,7 +74,8 @@ class Encaptcha {
 				ip.setAttribute('id', 'enc-ip_0'+document.querySelectorAll('.enc-wrapper').length)
 				ip.setAttribute('style', 'width:80%; height:100%; text-align: center; font-size:25px;letter-spacing: 3px;');
 				ip.addEventListener('keyup', function(e){
-					self.validate_encaptcha();
+					self.kyPressCnt++ ;
+					self.lookup_encaptcha(this);
 				});
 				this.input = ip;
 
@@ -100,6 +103,7 @@ class Encaptcha {
 		var filled_width = 0;
 		clearInterval(this.timerHandler);
 		this.subAtlas.length = 0;
+		this.input.value = '';
 		this.ctx.clearRect(0,0,this.canvas_diam.width, this.canvas_diam.height);
 		for(let i = 0; i < this.char_count; i++){
 			let index = parseInt(Math.floor(Math.random() * this.atlas.length) + 0);
@@ -123,13 +127,46 @@ class Encaptcha {
 		}, 1000);
 	}
 
-	validate_encaptcha(){
-		alert();
+	lookup_encaptcha(_this){
+		var self = this;
+		var value = _this.value; 
+		var subAtlas = this.subAtlas;
+		if(value.length == this.char_count){
+			let yielde = ''
+			for(var i = 0; i < subAtlas.length; i++){
+				if(value.charAt(i) == subAtlas[i].name){
+					yielde+=subAtlas[i].name;
+				}
+				else
+					self.draw_canvas();
+			}
+			// console.log(self.kyPressCnt)
+			if(yielde == value){
+				if(self.kyPressCnt >= self.char_count){
+					clearInterval(self.timerHandler);
+					self.final.innerHTML = 'Validation complete'
+				}
+				else
+					self.draw_canvas();		
+			}
+			else{
+				if(self.attempt == -1){
+					self.draw_canvas();
+				}
+				else{
+					self.attempt --;
+					if(self.attempt == 0){
+						location.reload();	
+					}
+					self.draw_canvas();
+				}
+			}
+		}
 	}
 }
 
 Encaptcha.prototype.start = function(){
-			
+
 	if(window.jQuery){
 		if(document.querySelectorAll(this.container).length == 1){
 			var self = this;

@@ -4,6 +4,11 @@
 
 A "Completely Automated Public Turing test to tell Computers and Humans Apart" aka CAPTCHA, build on JavaScript, this plugin is standalone (no dependencies), clean, simple, light and secure. A simple integration to prevent bots from your form
 
+##FEATURE
+
+- Control on number of wrong attempt (Reloads the page on attempt expires)
+- Auto reload captcha after specific interval
+- Shortcut detection, i.e. reloads captcha if any shortcut is detected (like <ctrl> + V or RightClick + paste)
 
 ##CONTENT
 
@@ -11,7 +16,7 @@ A "Completely Automated Public Turing test to tell Computers and Humans Apart" a
 - [Setup-guide](#setup)
 - [Example](#example) 
 - [Configuration / Options](#CONFIGURATION)
-- [Dependency] (#dependency)
+- [Dependency](#dependency)
 - [Browser support](#browser) 
 
 

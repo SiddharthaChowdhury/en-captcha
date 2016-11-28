@@ -86,7 +86,8 @@
 			config:{
 				container: '#captcha1',
 				reload_interval: 10,
-				reloadBtn_text: 'Recaptcha'
+				reloadBtn_text: 'Recaptcha',
+				allowed_attempt: 0
 			}
 		});
 		obj1.start();
@@ -94,8 +95,9 @@
 		var obj2 = new Encaptcha({
 			config:{
 				container: '#captcha2',
-				reload_interval: 20,
-				// reloadBtn_text: 'Recap'
+				reload_interval: 70,
+				// reloadBtn_text: 'Recap',
+				allowed_attempt: 0
 			}
 		});
 		obj2.start();
