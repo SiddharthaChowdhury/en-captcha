@@ -87,6 +87,8 @@ NO Dependency. It is **NOT** dependent on any library/framework like JQuery or a
  Online [Image compress](http://optimizilla.com)
 
  Online [Image metadata viewer](http://regex.info/exif.cgi)
+
+ Online [Base64](http://jsfiddle.net/handtrix/xztfbx1m/)
  
 ##CONTENT
 

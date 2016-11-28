@@ -43,6 +43,7 @@
 			<button type="submit">Sign up</button>
 		</form>
 	</div>
+	<img src="" id="imgg">
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="encaptcha.js"></script>
@@ -51,7 +52,7 @@
 		var obj = new Encaptcha({
 			config:{
 				container: '#captcha',
-				reload_interval: 45,
+				reload_interval: 10,
 				reloadBtn_text: 'Recap'
 			}
 		});
