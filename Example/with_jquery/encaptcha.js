@@ -22,7 +22,7 @@ class Encaptcha {
 
 	cook_meta(){
 		let min = 4;
-		let max = 7;
+		let max = 6;
 		this.char_count = Math.floor(Math.random() * (max - min + 1)) + min;
 		this.char_diam = {width: 40, height: 'auto'};
 		this.canvas_diam = { width: (this.char_count * this.char_diam.width), height: 50 }
@@ -31,7 +31,7 @@ class Encaptcha {
 	crerate_dom(){
 		var self = this;
 		let wrapr = document.createElement('div');
-		wrapr.setAttribute('style', 'display: flex; flex-direction:column; background-color:#CCC; padding:3px 4px; width:'+((this.char_diam.width * 7) +14)+'px; margin:0px;');
+		wrapr.setAttribute('style', 'display: flex; flex-direction:column; background-color:#CCC; padding:3px 4px; width:'+((this.char_diam.width * 6) +14)+'px; margin:0px;');
 		wrapr.setAttribute('class', 'enc-wrapper');
 		wrapr.setAttribute('id', 'enc-wrapper_0'+document.querySelectorAll('.enc-wrapper').length);
 
@@ -71,6 +71,9 @@ class Encaptcha {
 				ip.setAttribute('type', 'text');
 				ip.setAttribute('id', 'enc-ip_0'+document.querySelectorAll('.enc-wrapper').length)
 				ip.setAttribute('style', 'width:80%; height:100%; text-align: center; font-size:25px;letter-spacing: 3px;');
+				ip.addEventListener('keyup', function(e){
+					self.validate_encaptcha();
+				});
 				this.input = ip;
 
 		top_n.appendChild(timestamp);
@@ -110,7 +113,6 @@ class Encaptcha {
 	}
 
 	start_timer(){
-		
 		var self = this;
 		var lock = self.lap;
 
@@ -121,20 +123,24 @@ class Encaptcha {
 			}
 			self.timestamp.innerHTML = 'Valid for '+lock+' sec'; 
 		}, 1000);
+	}
 
+	validate_encaptcha(){
+		alert();
 	}
 }
 
 Encaptcha.prototype.start = function(){
 			
 	if(window.jQuery){
-		if(jQuery(this.container).length == 1){
+		if(document.querySelectorAll(this.container).length == 1){
 			var self = this;
+			this.load_spriteData();
 			this.cook_meta();
 			this.crerate_dom();
-			this.load_spriteData();
+			
 			this.draw_canvas();
-			jQuery(this.container).append(this.final)
+			document.querySelector(this.container).append(this.final)
 		}
 		else
 			console.log('Value of [container] passed in config is INVALID ( either not-UNIQUE or doesnt exist in the current page)')
